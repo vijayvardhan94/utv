@@ -11,8 +11,9 @@ describe("AppHeader", () => {
     const wrapper = mount(AppHeader);
     wrapper.setData({ loggedIn: true });
     //because the assertion happens before it is registered with the dom. So wait,
-    //for the dopm updates. This is done via async await.
+    //for the dom updates. This is done via async await.
     await wrapper.vm.$nextTick();
+    //next tick we can tell the test to wait for dom updates before movingon to assertion.
     expect(wrapper.find("button").isVisible()).toBe(true);
   });
 });
